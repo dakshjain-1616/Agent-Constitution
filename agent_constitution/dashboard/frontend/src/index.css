@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0f172a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
+
+.card {
+  @apply bg-slate-800 rounded-lg p-6 shadow-lg border border-slate-700;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply btn bg-primary-600 hover:bg-primary-700 text-white;
+}
+
+.btn-secondary {
+  @apply btn bg-slate-700 hover:bg-slate-600 text-white;
+}
+
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-low {
+  @apply badge bg-green-100 text-green-800;
+}
+
+.badge-medium {
+  @apply badge bg-yellow-100 text-yellow-800;
+}
+
+.badge-high {
+  @apply badge bg-orange-100 text-orange-800;
+}
+
+.badge-critical {
+  @apply badge bg-red-100 text-red-800;
+}
+
+.table-container {
+  @apply overflow-x-auto rounded-lg border border-slate-700;
+}
+
+.table {
+  @apply min-w-full divide-y divide-slate-700;
+}
+
+.table th {
+  @apply px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider bg-slate-800;
+}
+
+.table td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-slate-300;
+}
+
+.table tr:hover {
+  @apply bg-slate-700/50;
+}
+
+.stat-card {
+  @apply card flex flex-col;
+}
+
+.stat-value {
+  @apply text-3xl font-bold text-white;
+}
+
+.stat-label {
+  @apply text-sm text-slate-400 mt-1;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}

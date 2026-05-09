@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-constitution"
+version = "0.1.0"
+description = "Policy enforcement framework for AI agents with PII detection and audit logging"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Agent Constitution Contributors"}
+]
+keywords = ["ai", "agents", "policy", "enforcement", "pii", "audit", "security"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "click>=8.0",
+    "rich>=13.0",
+    "watchdog>=3.0",
+    "regex>=2023.0",
+    "httpx>=0.24.0",
+    "websockets>=11.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0",
+    "httpx>=0.24.0",
+]
+
+[project.scripts]
+agent-constitution = "agent_constitution.cli:cli"
+ac = "agent_constitution.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/agent-constitution"
+Documentation = "https://github.com/yourusername/agent-constitution#readme"
+Repository = "https://github.com/yourusername/agent-constitution"
+Issues = "https://github.com/yourusername/agent-constitution/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agent_constitution*"]
+exclude = ["tests*", "docs*", "example*"]
+
+[tool.setuptools.package-data]
+"agent_constitution.dashboard.frontend" = ["dist/**/*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

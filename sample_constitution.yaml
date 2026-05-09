@@ -1,0 +1,52 @@
+version: '1.0'
+name: Sample Agent Constitution
+description: Example constitution with common security policies
+policies:
+- name: tool_restrictions
+  description: Restrict access to dangerous tools
+  rules:
+  - name: block_file_deletion
+    description: Prevent file system deletion operations
+    condition: tool_name in ['rm', 'unlink', 'rmdir']
+    action: block
+    severity: critical
+    enabled: true
+    metadata: {}
+  - name: restrict_network_access
+    description: Limit unrestricted network access
+    condition: tool_name == 'curl' and not context.get('approved', False)
+    action: notify
+    severity: high
+    enabled: true
+    metadata: {}
+  enabled: true
+  priority: 10
+- name: data_protection
+  description: Protect sensitive data
+  rules:
+  - name: pii_detection
+    description: Detect and protect PII in outputs
+    condition: pii_detected == True
+    action: block
+    severity: high
+    enabled: true
+    metadata: {}
+  enabled: true
+  priority: 5
+pii_config:
+  enabled: true
+  patterns:
+  - email
+  - ssn
+  - phone
+  use_ollama: true
+  ollama_model: gemma3:4b
+  ollama_url: http://localhost:11434
+  sensitivity: medium
+audit_config:
+  enabled: true
+  log_path: ./audit_logs.jsonl
+  max_file_size_mb: 100
+  retention_days: 30
+  log_level: info
+global_settings: {}
