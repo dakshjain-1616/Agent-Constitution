@@ -18,6 +18,12 @@ NEO is the autonomous AI engineering agent that orchestrates multi-step developm
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Why We Built This
+
+AI agents now run real workflows with access to customer data, internal systems, and external APIs — but most of them have no enforceable rules about what they are allowed to do. A single prompt injection or careless tool call can leak PII, hit the wrong endpoint, or quietly violate a compliance policy, and there is usually nothing in the loop to stop it or even leave an audit trail.
+
+Agent Constitution was built so every agent action runs through a **policy layer you control**: declare the rules in YAML, evaluate conditions safely without `eval`, detect PII in inputs and outputs, log every decision to a tamper-evident audit trail, and watch enforcement in real time from a dashboard. The goal is to make agent guardrails something you can write down, version, and prove — not a hope.
+
 ## Features
 
 - **Policy-Based Enforcement**: Define rules using YAML constitution files
@@ -31,8 +37,8 @@ NEO is the autonomous AI engineering agent that orchestrates multi-step developm
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/agent-constitution.git
-cd agent-constitution
+git clone https://github.com/dakshjain-1616/Agent-Constitution.git
+cd Agent-Constitution
 
 # Install dependencies
 pip install -e .
@@ -319,4 +325,4 @@ For questions or issues, please open an issue on GitHub.
 
 ## 🤖 Built with NEO
 
-This project was developed using [NEO MCP](https://docs.heyneo.so) — the Model Context Protocol server for autonomous AI infrastructure development. NEO enabled rapid implementation, testing, and iteration across all 10 implementation steps, resulting in a production-ready policy enforcement framework with comprehensive test coverage (84/84 tests passing).
+This project was developed using [NEO](https://heyneo.com) — the autonomous AI engineering agent. NEO enabled rapid implementation, testing, and iteration across all 10 implementation steps, resulting in a production-ready policy enforcement framework with comprehensive test coverage (84/84 tests passing).
